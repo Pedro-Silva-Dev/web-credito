@@ -1,0 +1,33 @@
+  <div class="mt-4">
+    <ui-table [footer]="true" [default]="true" [empty]="true">
+      <ng-container thead>
+        <tr>
+          <th class="text-start">Número de crédito</th>
+          <th class="text-start">Número NFS-e</th>
+          <th class="text-start">Data</th>
+          <th class="text-start">Tipo de crédito</th>
+          <th class="text-end">Valor</th>
+        </tr>
+      </ng-container>
+      <ng-container tbody>
+        @for (credito of creditos(); track $index) {
+          <tr>
+            <td class="text-start truncate max-w-28">{{credito.numeroCredito}}</td>
+            <td class="text-start truncate max-w-28">{{credito.numeroNfse}}</td>
+            <td class="text-start truncate max-w-28">{{credito.dataConstituicao | date: 'dd/MM/yyyy'}}</td>
+            <td class="text-start truncate max-w-28">{{credito.tipoCredito}}</td>
+            <td class="text-end">{{'R$ '+credito.valorIssqn?.toFixed(2)}}</td>
+            <!-- @if (displayButtonAction) {
+              <td class="text-center">
+                <ui-dropdown text="Opções">
+                  <<ng-container link>
+                    <li><a (click)="displayEditProduct(product)" href="javascript:void(0)">Editar</a></li>
+                  </ng-container>
+                </ui-dropdown>
+              </td>
+            } -->
+          </tr>
+        } 
+      </ng-container>
+    </ui-table>
+  </div>
