@@ -1,10 +1,18 @@
-import { Injectable } from '@angular/core';
+import { Injectable, signal } from '@angular/core';
+import { BaseService } from '../shared/services/Base.service';
+import { Credito } from '../models/credito.model';
+import { HttpResponse } from '@angular/common/http';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
-export class CreditoService {
+export class CreditoService extends BaseService {
 
-  constructor() { }
+  public getCreditosPorNumeroNfse(numeroNfse: string, eventLoad = signal(false)): Observable<HttpResponse<Credito[]>> {
+    const url = `/api/creditos/${numeroNfse}`;
+    return this.get(url, eventLoad, null);
+  }
+
 
 }

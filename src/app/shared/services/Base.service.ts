@@ -12,15 +12,15 @@ export class BaseService {
 
   protected http: HttpClient = inject(HttpClient);
 
-  protected get(url: string, eventComponent: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false), msgError?: string, build?: any, sort?: string): Observable<HttpResponse<any>> {
-    eventComponent?.next(true);
+  protected get(url: string, eventLoad = signal(false), build?: any, sort?: string): Observable<HttpResponse<any>> {
+    eventLoad.set(true);
     const sortParam = sort ? `&${sort}` : '';
     return this.http.get<any>(`${BASE_URL}${url}?success=true${this._getInfoBuild(build)}${sortParam}`, { observe: 'response' }).pipe(catchError(
     (err: any) => {
-        eventComponent?.next(false);
+        eventLoad.set(false);
         return throwError(() => err);
       }
-    )).pipe(take(1)).pipe(tap((_: any) => eventComponent?.next(false)));
+    )).pipe(take(1)).pipe(tap((_: any) => eventLoad.set(false)));
   }
 
   /******************* METHODS PRIVATE *******************/
