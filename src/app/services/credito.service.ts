@@ -14,5 +14,9 @@ export class CreditoService extends BaseService {
     return this.get(url, eventLoad, null);
   }
 
+  public getCreditoPorNumeroCredito(numeroCredito: string, eventLoad = signal(false)): Observable<HttpResponse<Credito>> {
+    const url = `/api/creditos/credito/${numeroCredito}`;
+    return this.get(url, eventLoad, null);
+  }
 
 }
