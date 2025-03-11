@@ -1,0 +1,34 @@
+<ui-card [header]="header" [footer]="footer" [isTransparent]="default" [isPadding]="!default">
+  @if (header) {
+      <ng-container header>
+          <ng-content select="[header]"></ng-content>
+      </ng-container>
+  }
+  <ng-container body>
+      <div class="overflow-auto h-96 md:overflow-visible md:h-auto ">
+          @if(!loadEvent()) {
+              <table class="table duration-300 opacity-1">
+                  <thead class="text-base">
+                    <ng-content select="[thead]"></ng-content>
+                  </thead>
+                  <tbody>
+                    <ng-content select="[tbody]"></ng-content>
+                  </tbody>
+              </table>
+          }@else {
+              <div class="skeleton w-full h-full duration-300 opacity-0"></div>
+          }
+      </div>
+      @if(empty) {
+          <ng-content select="[empty]"></ng-content>
+      }
+  </ng-container>
+  @if(footer) {
+      <ng-container footer>
+          <ng-content select="[footer]"></ng-content>
+      </ng-container>
+  }
+  @if(empty) {
+      <ng-content select="[empty]"></ng-content>
+  }
+</ui-card>
