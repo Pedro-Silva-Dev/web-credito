@@ -1,5 +1,9 @@
+<div class="grid grid-cols-1 p-4">
+  <div class="flex justify-between">
+    <h3 class="md:text-2xl sm:text-lg">Creditos / <a (click)="navegarParaFiltrarCredito()" ui-link class="text-lg" href="javascript:void(0)">Voltar</a></h3>
+  </div>
   <div class="mt-4">
-    <ui-table [footer]="true" [default]="true" [empty]="true">
+    <ui-table [footer]="true" [default]="false" [empty]="true">
       <ng-container thead>
         <tr>
           <th class="text-start">Número de crédito</th>
@@ -12,22 +16,20 @@
       <ng-container tbody>
         @for (credito of creditos(); track $index) {
           <tr>
-            <td class="text-start truncate max-w-28">{{credito.numeroCredito}}</td>
+            <td class="text-start truncate max-w-28">
+              <a (click)="exibirModalDetalhesCredito(modalDetalhesCredito, credito)" ui-link class="text-lg" href="javascript:void(0)">{{credito.numeroCredito}}</a>
+            </td>
             <td class="text-start truncate max-w-28">{{credito.numeroNfse}}</td>
             <td class="text-start truncate max-w-28">{{credito.dataConstituicao | date: 'dd/MM/yyyy'}}</td>
             <td class="text-start truncate max-w-28">{{credito.tipoCredito}}</td>
             <td class="text-end">{{'R$ '+credito.valorIssqn?.toFixed(2)}}</td>
-            <!-- @if (displayButtonAction) {
-              <td class="text-center">
-                <ui-dropdown text="Opções">
-                  <<ng-container link>
-                    <li><a (click)="displayEditProduct(product)" href="javascript:void(0)">Editar</a></li>
-                  </ng-container>
-                </ui-dropdown>
-              </td>
-            } -->
           </tr>
         } 
       </ng-container>
     </ui-table>
   </div>
+</div>
+
+<ng-template #modalDetalhesCredito>
+    <app-detalhes-credito [credito]="creditoSelecionado"/>
+</ng-template>

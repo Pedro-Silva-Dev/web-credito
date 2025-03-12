@@ -1,0 +1,34 @@
+<div class="grid grid-cols-1">
+  <div class="">
+    <ui-table [footer]="true" [default]="true" [empty]="true">
+      <ng-container thead>
+        <tr>
+          <th class="text-start">Número NFS-e</th>
+          <th class="text-start">Data</th>
+          <th class="text-start">Tipo de crédito</th>
+          <th class="text-start">Simple nacional</th>
+          <th class="text-end">Valor ISSQN</th>
+          <th class="text-end">Aliquota</th>
+          <th class="text-end">Valor faturado</th>
+          <th class="text-end">Valor de dedução</th>
+          <th class="text-end">Base de cálculo</th>
+        </tr>
+      </ng-container>
+      <ng-container tbody>
+        <tr>
+          <td class="text-start truncate max-w-28">{{credito.numeroNfse}}</td>
+          <td class="text-start truncate max-w-28">{{credito.dataConstituicao | date: 'dd/MM/yyyy'}}</td>
+          <td class="text-start truncate max-w-28">{{credito.tipoCredito}}</td>
+          <td class="text-start truncate max-w-28">{{credito.simplesNacional ? 'Sim' : 'Não'}}</td>
+          <td class="text-end">{{'R$ '+credito.valorIssqn?.toFixed(2)}}</td>
+          <td class="text-end">{{credito.aliquota?.toFixed(2)}}</td>
+          <td class="text-end">{{'R$ '+credito.valorFaturado?.toFixed(2)}}</td>
+          <td class="text-end">{{'R$ '+credito.valorDeducao?.toFixed(2)}}</td>
+          <td class="text-end">{{'R$ '+credito.baseCalculo?.toFixed(2)}}</td>
+        </tr>
+      </ng-container>
+    </ui-table>
+  </div>
+</div>
+
+

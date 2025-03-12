@@ -43,13 +43,17 @@ export class CreditoComponent implements OnInit {
     }
   }
 
+  public visualizarPesquisarCredito(): void {
+    this.pesquisarCredito.set(true);
+  }
+
   /******************* METHODS PRIVATE *******************/
 
   private _setCreditosPorNfse(numeroNfse: string): void {
     this._creditoService.getCreditosPorNumeroNfse(numeroNfse, this.carregandoCreditosEvent).subscribe(res => {
       if(res.status == 200) {
         this.creditos.set(res.body!);
-        if(res.body) {
+        if(res.body?.length) {
           this.pesquisarCredito.set(false);
         }else {
           this._toastrService.sendInfoMessage(`Nenhum registro encontrado, verifique o NFS-e e tente novamente.`);

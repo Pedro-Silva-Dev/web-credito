@@ -1,3 +1,4 @@
+import { UiModalComponent } from './shared/components/ui-modal/ui-modal.component';
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { UiToastComponent } from './shared/components/ui-toast/ui-toast.component';
@@ -6,7 +7,8 @@ import { UiToastComponent } from './shared/components/ui-toast/ui-toast.componen
   selector: 'app-root',
   imports: [
     RouterOutlet,
-    UiToastComponent
+    UiToastComponent,
+    UiModalComponent
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
