@@ -26,7 +26,8 @@ export class FiltroCreditoComponent implements OnInit {
   @Input() carregandoCreditosEvent = signal(false);
 
   private _formBuilder = inject(FormBuilder);
-  
+
+  public filtroValido = signal(false);
   public filtro = this._formBuilder.group({
     numeroNfse: [''],
     numeroCredito: ['']
@@ -39,7 +40,7 @@ export class FiltroCreditoComponent implements OnInit {
   }
 
   public pesquisar(): void {
-    if(this.filtro?.valid) {
+    if(this.filtroValido()) {
       if(this.filtro?.value?.numeroNfse) {
         this.pesquisarEvent.emit({tipo: 'numeroNfse', value: this.filtro.value.numeroNfse});
       }else {
@@ -53,15 +54,18 @@ export class FiltroCreditoComponent implements OnInit {
   private _setConfigFiltro(): void {
     this.filtro?.valueChanges?.pipe(
         distinctUntilChanged(),
-        debounceTime(300),
+        debounceTime(200),
       ).subscribe(res => {
       if(res.numeroCredito && !this.filtro.get('numeroNfse')?.disabled) {
         this._desabilitarFiltro(`numeroNfse`);
+        this.filtroValido.set(true);
       }else if(res.numeroNfse && !this.filtro.get('numeroCredito')?.disabled) {
         this._desabilitarFiltro(`numeroCredito`);
+        this.filtroValido.set(true);
       }else if(!res.numeroCredito && !res.numeroNfse) {
         this._habilitarFiltro(`numeroNfse`);
         this._habilitarFiltro(`numeroCredito`);
+        this.filtroValido.set(false);
       }
     });
   }
