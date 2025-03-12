@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { ChangeDetectionStrategy, Component, inject, OnInit, signal } from '@angular/core';
 import { UI_TOAST_TYPE } from '../../enums/ui-toast-type.enum';
-import { UiToastService } from '../../services/UiToast.service';
+import { UiToastService } from '../../services/ui-toast.service';
 
 @Component({
   selector: 'ui-toast',

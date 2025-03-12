@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component, EventEmitter, inject, Input, Output, signal, WritableSignal, type OnInit } from '@angular/core';
 import { FormBuilder, ReactiveFormsModule } from '@angular/forms';
-import { UiButtonComponent } from '../../../shared/components/UiButton/UiButton.component';
+import { UiButtonComponent } from '../../../shared/components/UiButton/ui-button.component';
 import { UiInputDirective } from '../../../shared/directives/ui-input.directive';
 import { UiLabelDirective } from '../../../shared/directives/ui-label.directive';
 import { distinctUntilChanged, debounceTime } from 'rxjs';

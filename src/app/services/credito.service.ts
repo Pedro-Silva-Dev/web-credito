@@ -1,5 +1,5 @@
 import { Injectable, signal } from '@angular/core';
-import { BaseService } from '../shared/services/Base.service';
+import { BaseService } from '../shared/services/base.service';
 import { Credito } from '../models/credito.model';
 import { HttpResponse } from '@angular/common/http';
 import { Observable } from 'rxjs';

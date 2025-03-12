@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Subject, Observable } from 'rxjs';
 import { UI_TOAST_TYPE } from '../enums/ui-toast-type.enum';
-import { UiToast } from '../models/UiToast.model';
+import { UiToast } from '../models/ui-toast.model';
 
 @Injectable({
   providedIn: 'root'

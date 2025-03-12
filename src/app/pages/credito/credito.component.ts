@@ -5,12 +5,12 @@ import { CreditoService } from '../../services/credito.service';
 import { FormBuilder, ReactiveFormsModule } from '@angular/forms';
 import { UiInputDirective } from '../../shared/directives/ui-input.directive';
 import { UiLabelDirective } from '../../shared/directives/ui-label.directive';
-import { UiButtonComponent } from '../../shared/components/UiButton/UiButton.component';
+import { UiButtonComponent } from '../../shared/components/UiButton/ui-button.component';
 import { debounceTime, distinctUntilChanged } from 'rxjs';
 import { FiltroCreditoComponent } from "./filtro-credito/filtro-credito.component";
 import { TipoFiltroCredito } from '../../models/tipo-filtro-credito.model';
 import { TabelaCreditoComponent } from './tabela-credito/tabela-credito.component';
-import { UiToastService } from '../../shared/services/UiToast.service';
+import { UiToastService } from '../../shared/services/ui-toast.service';
 
 @Component({
   selector: 'app-credito',
