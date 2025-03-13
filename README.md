@@ -41,9 +41,15 @@
   ./start.sh
 ```
 5. Explore as funcionalidades do projeto acessando o link abaixo e descubra como a consulta de créditos pode ser rápida e intuitiva:
-```
-  http://localhost:4200/
-```
+ 
+   Projeto Back-End (API necessária para conseguir realizar as consultas de créditos.):
+   ```
+    https://github.com/Pedro-Silva-Dev/api-credito
+   ```
+   Acesso ao endereço do projeto Front-End:
+    ```
+     http://localhost:4200/
+    ```
 
 ## Ferramentas utilizadas
 Este projeto foi desenvolvido utilizando as seguintes tecnologias:  
