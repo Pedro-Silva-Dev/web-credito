@@ -1,0 +1,16 @@
+services:
+  web:
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    ports:
+      - "4200:80"
+    expose:
+      - 4200
+    networks:
+      - aries-web-net
+    tty: true
+
+networks:
+  aries-web-net:
+    driver: bridge
