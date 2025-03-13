@@ -26,7 +26,7 @@
 ## Acesso ao projeto
 1. Clone este repositório:
 ```
-  git@github.com:Pedro-Silva-Dev/web-credito.git
+  git clone git@github.com:Pedro-Silva-Dev/web-credito.git
 ```
 2. Acesse a pasta do projeto:
 ```
