@@ -9,12 +9,12 @@
           <form [formGroup]="filtro">
               <div class="mb-2 w-full">
                 <label ui-label for="numeroNfse">Número NFS-e</label>
-                <input ui-input formControlName="numeroNfse" type="text" id="numeroNfse" placeholder="Digite o número NFS-e" autocomplete="off">
+                <input ui-input formControlName="numeroNfse" mask="separator" [allowNegativeNumbers]="true" type="text" id="numeroNfse" placeholder="Digite o número NFS-e" autocomplete="off">
               </div>
               <div class="mb-2">
                 <label ui-label for="numeroCredito">Número de crédito</label>
                 <div class="relative">
-                  <input ui-input formControlName="numeroCredito" type="text" id="numeroCredito" placeholder="Digite o número de crédito" autocomplete="off">
+                  <input ui-input formControlName="numeroCredito" mask="separator" [allowNegativeNumbers]="true" type="text" id="numeroCredito" placeholder="Digite o número de crédito" autocomplete="off">
                   <div class="cursor-pointer absolute inset-y-0 end-4 flex items-center ps-3"></div>
                 </div>
               </div>

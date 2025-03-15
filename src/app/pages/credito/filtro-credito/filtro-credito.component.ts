@@ -7,6 +7,7 @@ import { distinctUntilChanged, debounceTime } from 'rxjs';
 import { Credito } from '../../../models/credito.model';
 import { CreditoService } from '../../../services/credito.service';
 import { TipoFiltroCredito } from '../../../models/tipo-filtro-credito.model';
+import { NgxMaskDirective } from 'ngx-mask';
 
 @Component({
   selector: 'app-filtro-credito',
@@ -15,6 +16,7 @@ import { TipoFiltroCredito } from '../../../models/tipo-filtro-credito.model';
     ReactiveFormsModule,
     UiInputDirective,
     UiLabelDirective,
+    NgxMaskDirective
   ],
   templateUrl: './filtro-credito.component.html',
   styleUrl: './filtro-credito.component.css',
